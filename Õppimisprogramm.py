@@ -1,8 +1,9 @@
 import random 
+import guioige 
 
-eesti =["tere", "puu", "klass"]
-vöörkeel = ["hello", "tree", "class"]
-"""
+print(tõlked)
+
+
 while True:
     a = input("Sisestage eesikeelne sõna: ")
     if a == "":
@@ -11,7 +12,7 @@ while True:
     eesti.append(a)
     vöörkeel.append(b)
     print("----------------------------------")
-""" 
+ 
 print("Õppimise meetodid: ")
 
 def meetod1(eesti, vöörkeel):
