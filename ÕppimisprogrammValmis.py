@@ -1,7 +1,8 @@
 from tkinter import *
 from tkinter import font
 import tkinter as tk
-from Õppimisprogramm import *
+import os
+
 
 win = Tk()
 
@@ -18,12 +19,27 @@ listb = []
 punktid = {}
 rn=1
 
+fail = open("sõnad.txt", "r")
+data = fail.read()
+count = 0
+for line in fail:
+    if count % 2 == 0:
+        lista.append(line.strip())
+        count +=1
+    elif count % 2 != 0:
+        listb.append(line.strip())
+        count +=1
 
 def näita():
+    global lista
+    global listb
+    fail = open("sõnad.txt", "w")
     INPUT = entry1.get("1.0","end-1c" )
     count = 0
     INPUT = INPUT.split("\n")
     for line in INPUT:
+        if line != "":
+            fail.write(line + "\n")
         if count % 2 == 0:
             lista.append(line.strip())
             count +=1
@@ -32,10 +48,11 @@ def näita():
             count +=1
     if "" in lista:
         lista.remove("")
-    if "" in lista:   
+    if "" in listb:   
         listb.remove("")    
     for n in lista:
         punktid.update({n:0})
+    fail.close()
 
 def esilehele():
     greet.pack(fill='both', expand=1)
@@ -50,6 +67,8 @@ def sõnu_sisestama():
 
 #MEETOD 1
 def comp_s(event):
+    print(lista)
+    print(listb)
     try:
         global rn
         sisend = str(r.get())
@@ -192,7 +211,7 @@ Teine meetod annab sulle ette sõna ning sa pead vastama kas tõlge on õige võ
 label1 = Label(greet, text=label_text, font=font1)
 label1.pack(pady=20)
 
-label2 = Label(order, text="Sisestage sõnad mida soovite õppida.Siestage kordamööda sõna ja selle tõlge. \n Iga sõna vahele vajutage ENTER ning kui kõik sõnad on sisestatud vajutage nuppu 'Salvesta sõnad'", font=font2)
+label2 = Label(order, text="Sisestage sõnad mida soovite õppida.", font=font2)
 label2.pack(pady=20)
 
 esilehele()
@@ -216,11 +235,14 @@ back_btn4 = Button(meetod3f, text="Esilehele", font=font2, command=esilehele)
 back_btn4.pack(pady=20)
 
 
-entry1 = tk.Text(order, height = 8, width = 20)
+
+entry1 = tk.Text(order,height = 8, width = 20)
 entry1.pack()
+entry1.insert("1.0", data)
+
 
 näita = Button(order, text = "Salvesta sõnad", font=font2, command = näita)
 näita.pack(pady=10)
 
-
+fail.close()
 win.mainloop()

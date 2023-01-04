@@ -1,0 +1,8 @@
+FIN Soome
+IRL Iirimaa
+EST Eesti
+LV Läti
+CH Šveits
+LT Leedu
+RUS Venemaa
+SWE Rootsi

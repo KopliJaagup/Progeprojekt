@@ -1,21 +1,8 @@
 import random 
-import guioige 
-
-print(tõlked)
 
 
-while True:
-    a = input("Sisestage eesikeelne sõna: ")
-    if a == "":
-        break
-    b = input("Sisestage vöörkeelne vaste: ")
-    eesti.append(a)
-    vöörkeel.append(b)
-    print("----------------------------------")
- 
-print("Õppimise meetodid: ")
 
-def meetod1(eesti, vöörkeel):
+def m(eesti, vöörkeel):
     a = eesti
     b = vöörkeel
     punktid = {}
@@ -86,6 +73,4 @@ def truefalse(eesti, vöörkeel):
         except:
             print("Said hakkama!!")
             break
-        
-        
-truefalse(eesti, vöörkeel)
+            

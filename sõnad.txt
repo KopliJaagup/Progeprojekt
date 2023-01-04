@@ -1,0 +1,8 @@
+auto
+car
+puu
+tree
+maja
+house
+laud
+table
